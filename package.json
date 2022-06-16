@@ -1,0 +1,16 @@
+{
+  "name": "Nasa-Project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "install-server": "yarn --cwd /.server/ install",
+    "install-client": "yarn --cwd /.client/ install",
+    "install": "yarn run install-server && yarn run install-client",
+    "server": "yarn --cwd ./server/ run watch",
+    "client": "yarn --cwd ./client/ start",
+    "watch": "yarn run server & yarn run client",
+    "test": "yarn --cwd ./server/ run test && yarn --cwd ./client/ run test",
+    "deploy": "yarn --cwd ./client/ build && yarn --cwd ./server/ start"
+  }
+}
