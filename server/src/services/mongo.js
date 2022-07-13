@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
 
-const MONGO_URL =
-    'mongodb+srv://nasa-api:6LT52otvwPVAYEuI@nasacluster.m1ycwwz.mongodb.net/nasa?retryWrites=true&w=majority';
+dotenv.config({ path: __dirname + '/.env' });
+
+const url = process.env.MONGO_URL;
 
 mongoose.connection.once('open', () => {
     console.log('MongoDB connection ready!');
@@ -12,7 +14,7 @@ mongoose.connection.on('error', (err) => {
 });
 
 async function mongoConnect() {
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(process.env.MONGO_URL);
 }
 
 async function mongoDisconnect() {
